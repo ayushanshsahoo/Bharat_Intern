@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            margin: 0 auto;
+            width: 50%;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #888888;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        input[type="submit"] {
+            background-color: #22d60a;
+            color: #e8e8e8;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #d10000;
+        }
+        
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            border: 1px solid #cccccc;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temperature Converter</h1>
+    <form onsubmit="return false;">
+        <label>Enter temperature in Celsius:</label>
+        <input type="text" id="celsius" placeholder="Enter temperature in Celsius...">
+        <label>Enter temperature in Fahrenheit:</label>
+        <input type="text" id="fahrenheit" placeholder="Enter temperature in Fahrenheit...">
+        <input type="submit" value="Convert" onclick="convertTemperature()">
+    </form>
+    <div id="result" class="result"></div>
+
+    <script>
+        function convertTemperature() {
+            var celsius = document.getElementById("celsius").value;
+            var fahrenheit = document.getElementById("fahrenheit").value;
+            var result = document.getElementById("result");
+            if (celsius !== "") {
+                var f = (celsius * 9 / 5) + 32;
+                result.innerHTML = celsius + "°C = " + f + "°F";
+            } else if (fahrenheit !== "") {
+                var c = (fahrenheit - 32) * 5 / 9;
+                result.innerHTML = fahrenheit + "°F = " + c + "°C";
+            } else {
+                result.innerHTML = "Please enter a temperature to convert.";
+            }
+        }
+    </script>
+</body>
+
+</html>
